@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb6qepehjbwan"]
+
+[ext_resource type="Script" path="res://Scenes/Card.cs" id="1_2qnmi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wp8mx"]
+bg_color = Color(0.713726, 0.713726, 0.713726, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
+
+[node name="Card" type="PanelContainer"]
+custom_minimum_size = Vector2(300, 450)
+theme_override_styles/panel = SubResource("StyleBoxFlat_wp8mx")
+script = ExtResource("1_2qnmi")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "asdas"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2

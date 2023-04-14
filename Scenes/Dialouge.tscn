@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8pn7a733tr6v"]
+
+[ext_resource type="Script" path="res://Scenes/TextBox.cs" id="1_ce6ms"]
+[ext_resource type="Texture2D" uid="uid://b1bveqm3e3fgr" path="res://icon.svg" id="2_omtu1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1m3w"]
+bg_color = Color(0.713726, 0.713726, 0.713726, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
+
+[node name="Dialouge" type="HBoxContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -635.0
+offset_top = -250.0
+offset_right = 635.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+alignment = 1
+script = ExtResource("1_ce6ms")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+texture = ExtResource("2_omtu1")
+expand_mode = 3
+
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(1000, 200)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_e1m3w")
+
+[node name="TextLabel" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Wowie wowowow"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters_behavior = 1

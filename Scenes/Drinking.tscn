@@ -1,0 +1,182 @@
+[gd_scene load_steps=11 format=3 uid="uid://c51o702l74glb"]
+
+[ext_resource type="Texture2D" uid="uid://b1bveqm3e3fgr" path="res://icon.svg" id="1_koe10"]
+[ext_resource type="Script" path="res://Scenes/Drinking.cs" id="1_pggwd"]
+[ext_resource type="Script" path="res://Entities/Beer/TiltBeer.cs" id="1_xc12p"]
+[ext_resource type="PackedScene" uid="uid://cb6qepehjbwan" path="res://Scenes/Card.tscn" id="4_ewwkn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0w26"]
+size = Vector2(125.277, 112.941)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhh56"]
+size = Vector2(128, 125.6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpqvr"]
+size = Vector2(488.664, 42.6161)
+
+[sub_resource type="Animation" id="Animation_7yu83"]
+resource_name = "MoveBeer"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mouth:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(500, 1106), Vector2(1397, 1106)]
+}
+
+[sub_resource type="Animation" id="Animation_nyw57"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mouth:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(500, 1106)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_udxy3"]
+_data = {
+"MoveBeer": SubResource("Animation_7yu83"),
+"RESET": SubResource("Animation_nyw57")
+}
+
+[node name="Drinking" type="Control"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pggwd")
+
+[node name="Beer" type="AnimatableBody2D" parent="."]
+position = Vector2(815, 200)
+script = ExtResource("1_xc12p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beer"]
+position = Vector2(0, 150)
+scale = Vector2(2.20313, 0.265625)
+shape = SubResource("RectangleShape2D_j0w26")
+
+[node name="Beer" type="Sprite2D" parent="Beer/CollisionShape2D"]
+texture = ExtResource("1_koe10")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Beer"]
+position = Vector2(-125, -1)
+scale = Vector2(0.1875, 2.5)
+shape = SubResource("RectangleShape2D_jhh56")
+
+[node name="Beer2" type="Sprite2D" parent="Beer/CollisionShape2D2"]
+texture = ExtResource("1_koe10")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Beer"]
+position = Vector2(120, -1.99998)
+scale = Vector2(0.1875, 2.5)
+shape = SubResource("RectangleShape2D_jhh56")
+
+[node name="Beer4" type="Sprite2D" parent="Beer/CollisionShape2D3"]
+texture = ExtResource("1_koe10")
+
+[node name="BeerParticleSpawn" type="Marker2D" parent="Beer"]
+position = Vector2(0, 92)
+
+[node name="Mouth" type="AnimatableBody2D" parent="."]
+position = Vector2(500, 1106)
+scale = Vector2(0.70396, 0.70396)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Mouth"]
+position = Vector2(-269.895, -63.4573)
+scale = Vector2(0.145939, 0.914091)
+shape = SubResource("RectangleShape2D_jhh56")
+
+[node name="Beer2" type="Sprite2D" parent="Mouth/CollisionShape2D2"]
+position = Vector2(0.000976563, 0)
+texture = ExtResource("1_koe10")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Mouth"]
+position = Vector2(-394.909, -65.3446)
+rotation = 1.17852
+scale = Vector2(0.145939, 2.03465)
+shape = SubResource("RectangleShape2D_jhh56")
+
+[node name="Beer3" type="Sprite2D" parent="Mouth/CollisionShape2D3"]
+position = Vector2(0.000976563, -3.05176e-05)
+texture = ExtResource("1_koe10")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Mouth"]
+position = Vector2(358.72, -71.0267)
+rotation = 1.92753
+scale = Vector2(0.145939, 2.03465)
+shape = SubResource("RectangleShape2D_jhh56")
+
+[node name="Beer5" type="Sprite2D" parent="Mouth/CollisionShape2D4"]
+texture = ExtResource("1_koe10")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Mouth"]
+position = Vector2(234.388, -64.4573)
+scale = Vector2(0.208416, 0.930355)
+shape = SubResource("RectangleShape2D_jhh56")
+
+[node name="Beer4" type="Sprite2D" parent="Mouth/CollisionShape2D5"]
+texture = ExtResource("1_koe10")
+
+[node name="MouthArea" type="Area2D" parent="Mouth"]
+unique_name_in_owner = true
+position = Vector2(-9.94373, -63.9242)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouth/MouthArea"]
+position = Vector2(-7.10266, 32.6725)
+shape = SubResource("RectangleShape2D_lpqvr")
+debug_color = Color(0, 0.643137, 0.270588, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "MoveBeer"
+libraries = {
+"": SubResource("AnimationLibrary_udxy3")
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Score"
+
+[node name="ScoreValue" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "@VALUE@"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Card" parent="CenterContainer/HBoxContainer" instance=ExtResource("4_ewwkn")]
+layout_mode = 2
+
+[node name="Card2" parent="CenterContainer/HBoxContainer" instance=ExtResource("4_ewwkn")]
+layout_mode = 2
