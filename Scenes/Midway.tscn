@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2vdohvsm73qj"]
+
+[ext_resource type="Texture2D" uid="uid://bbdi4yegxcgkl" path="res://Artwork/IMG_0864.PNG" id="1_lo3n7"]
+[ext_resource type="Script" path="res://Scenes/Midway.cs" id="1_td8a2"]
+[ext_resource type="PackedScene" uid="uid://c81ismwx4e8sn" path="res://Entities/VisuelNovel/NovelPoints.tscn" id="2_ftkvc"]
+[ext_resource type="AudioStream" uid="uid://cn84ji0bvgn0n" path="res://Entities/VisuelNovel/Soundscape/ManlyTalk1.ogg" id="3_etps6"]
+[ext_resource type="Texture2D" uid="uid://bkk3m81f2pyy0" path="res://Entities/VisuelNovel/IMG_0869.PNG" id="4_e6yxw"]
+[ext_resource type="PackedScene" uid="uid://c8pn7a733tr6v" path="res://Scenes/Dialouge.tscn" id="6_jecty"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1gax2"]
+font_size = 32
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Midway" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_td8a2")
+
+[node name="NovelPointsLeft" parent="." instance=ExtResource("2_ftkvc")]
+VoiceStream = ExtResource("3_etps6")
+
+[node name="Icon" parent="NovelPointsLeft/Character" index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_e6yxw")
+hframes = 3
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lo3n7")
+
+[node name="BarName" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 842.0
+offset_top = 340.0
+offset_right = -672.0
+offset_bottom = -686.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.104349
+text = "@BarName@"
+label_settings = SubResource("LabelSettings_1gax2")
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="Dialouge" parent="." instance=ExtResource("6_jecty")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1270.0
+offset_bottom = 250.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[editable path="NovelPointsLeft"]

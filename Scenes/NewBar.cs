@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 
 public partial class NewBar : Control
 {
+    
     Label BarName;
     public async override void _Ready()
     {

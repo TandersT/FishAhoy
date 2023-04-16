@@ -49,6 +49,7 @@ public partial class TextBox : HBoxContainer
         if (character != null)
         {
             Image.Modulate = character.Modulate;
+            Image.Texture = character.SpeakerImage;
             character.isTalking = true;
             character.AudioTalk();
             showText.Finished += () => EndTalk(character);

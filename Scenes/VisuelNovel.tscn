@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6qwm6robcnr6"]
+[gd_scene load_steps=14 format=3 uid="uid://c6qwm6robcnr6"]
 
 [ext_resource type="Script" path="res://Scenes/VisuelNovel.cs" id="1_m6c08"]
 [ext_resource type="PackedScene" uid="uid://c8pn7a733tr6v" path="res://Scenes/Dialouge.tscn" id="1_pduqi"]
+[ext_resource type="Texture2D" uid="uid://di7kn2r7ork16" path="res://Entities/VisuelNovel/End.png" id="2_pad6m"]
 [ext_resource type="PackedScene" uid="uid://c81ismwx4e8sn" path="res://Entities/VisuelNovel/NovelPoints.tscn" id="2_w1jgb"]
 [ext_resource type="AudioStream" uid="uid://c6qlfpevt7ouy" path="res://Entities/VisuelNovel/Soundscape/ManlyTalk2.ogg" id="3_2dwvb"]
 [ext_resource type="AudioStream" uid="uid://cn84ji0bvgn0n" path="res://Entities/VisuelNovel/Soundscape/ManlyTalk1.ogg" id="3_qikby"]
+[ext_resource type="Texture2D" uid="uid://cuiqxaoql162q" path="res://Artwork/DALL·E 2023-04-16 11.16.47 - a dirty room cartoon graphics 2d.png" id="4_t4gpk"]
+[ext_resource type="Texture2D" uid="uid://b6cs2ipy7er2y" path="res://Artwork/IconMan.png" id="6_rypbn"]
+[ext_resource type="Texture2D" uid="uid://dvxkanfum41o0" path="res://Entities/VisuelNovel/IMG_0871.PNG" id="7_vbave"]
+[ext_resource type="Texture2D" uid="uid://bk3vaqh17k26x" path="res://Artwork/IMG_0870.PNG" id="8_ux1gq"]
+[ext_resource type="StyleBox" uid="uid://cuuk2aqqbqrp2" path="res://Entities/BasePanel.tres" id="9_a5fln"]
+[ext_resource type="Texture2D" uid="uid://b5bd7x0muo5l7" path="res://Artwork/IconFish.png" id="9_u24xk"]
+[ext_resource type="LabelSettings" uid="uid://c6ar7xhovof7j" path="res://Fonts/BaseFont.tres" id="10_hhl0c"]
 
 [node name="VisuelNovel" type="Control"]
 layout_mode = 3
@@ -14,6 +22,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m6c08")
+Start = ExtResource("4_t4gpk")
+End = ExtResource("2_pad6m")
 
 [node name="BG" type="TextureRect" parent="."]
 unique_name_in_owner = true
@@ -23,30 +33,89 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("4_t4gpk")
+expand_mode = 5
+stretch_mode = 5
 
 [node name="NovelPointsLeft" parent="." instance=ExtResource("2_w1jgb")]
 VoiceStream = ExtResource("3_qikby")
+SpeakerImage = ExtResource("6_rypbn")
+
+[node name="Icon" parent="NovelPointsLeft/Character" index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_vbave")
+hframes = 5
 
 [node name="NovelPointsRight" parent="." instance=ExtResource("2_w1jgb")]
-modulate = Color(1, 0.415686, 0.415686, 1)
 scale = Vector2(-1, 1)
 VoiceStream = ExtResource("3_2dwvb")
+SpeakerImage = ExtResource("9_u24xk")
+
+[node name="Icon" parent="NovelPointsRight/Character" index="0"]
+position = Vector2(0, -179)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_ux1gq")
+flip_h = true
+hframes = 4
 
 [node name="Dialouge" parent="." instance=ExtResource("1_pduqi")]
 layout_mode = 1
 
-[node name="ReturnButton" type="Button" parent="."]
+[node name="EndContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -262.0
-offset_top = -145.0
-offset_right = 262.0
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -453.5
+offset_right = 280.0
+offset_bottom = 453.5
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("9_a5fln")
+
+[node name="MarginContainer" type="MarginContainer" parent="EndContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="EndText" type="Label" parent="EndContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Thank you for playing!
+
+The total playtime was:
+@TIME@
+
+Local record:
+@RECORD@
+
+
+The game was created by:
+Stefan - Programmer
+Maddie - Graphics
+
+Using Godot Engine."
+label_settings = ExtResource("10_hhl0c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="EndContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Return"
+
+[editable path="NovelPointsLeft"]
+[editable path="NovelPointsRight"]

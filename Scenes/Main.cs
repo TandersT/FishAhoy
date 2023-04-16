@@ -15,15 +15,10 @@ public partial class Main : Control
 
     private void OnStartGame()
     {
+        Global.stopwatch.Restart();
         Global.CurrentLevel = 0;
         Global.PossibleDrinkingUpgrades = new System.Collections.Generic.List<UpgradesEnum>
         {
-            UpgradesEnum.BiggerMouth,
-            UpgradesEnum.BiggerMouth,
-            UpgradesEnum.BiggerMouth,
-            UpgradesEnum.FasterBeerhand,
-            UpgradesEnum.FasterBeerhand,
-            UpgradesEnum.FasterBeerhand,
             UpgradesEnum.BiggerMouth,
             UpgradesEnum.BiggerMouth,
             UpgradesEnum.BiggerMouth,

@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 
@@ -90,6 +91,7 @@ public enum UpgradesEnum
 
 public static class Global
 {
+    public static Stopwatch stopwatch = new Stopwatch();
     public static bool GodMode = false;
     public delegate void GameStateChangedDelegate(GameStateEnum gameState);
     public static event GameStateChangedDelegate OnGameStateChangedDelegate;
@@ -117,6 +119,9 @@ public static class Global
     public static string Main { get; internal set; } = "res://Scenes/Main.tscn";
     public static string NewBar { get; internal set; } = "res://Scenes/NewBar.tscn";
     public static string YouWin { get; internal set; } = "res://Scenes/NewBar.tscn";
+    public static string Midway { get; internal set; } = "res://Scenes/Midway.tscn";
+    public static double Highscore { get; internal set; }
+    public static string HighscoreString { get; internal set; }
 
     public static int CurrentLevel = 0;
     public static string[] BarNames =
@@ -124,20 +129,25 @@ public static class Global
         "The Salty Swimmer",
         "The Tuna Taproom",
         "The Mackerel's Mermaid",
-        "Land Ahoy"
+        "Land Ahoy!"
+    };
+    public static string[] SkippedBarNames = {
+        "The Cod's Corner",
+        "The Siren's Sip",
+        "The Angler's Alehouse",
     };
     public static DrinkingData[] DrinkingLevels =
     {
         new DrinkingData()
         {
-            Duration = 60,
-            TargetScore = 80,
+            Duration = 30,
+            TargetScore = 60,
             DrunkenIntensity = 0.1f,
             DrunkenDuration = 2,
             MouthSpeed = 0.5f,
             DropSize = 1,
             DropTexture = null,
-            DropSpawnScalar = .7f,
+            DropSpawnScalar = .8f,
             DropWeightScalar = 3,
             HandSway = 2,
             FinItnerference = false,
@@ -145,7 +155,7 @@ public static class Global
         }, //1
         new DrinkingData()
         {
-            Duration = 25,
+            Duration = 20,
             TargetScore = 40,
             DrunkenIntensity = 0.1f,
             DrunkenDuration = 2,
@@ -160,7 +170,7 @@ public static class Global
         },  //2
         new DrinkingData()
         {
-            Duration = 25,
+            Duration = 30,
             TargetScore = 60,
             DrunkenIntensity = 0.1f,
             DrunkenDuration = 2,
@@ -176,13 +186,13 @@ public static class Global
         new DrinkingData()
         {
             Duration = 50,
-            TargetScore = 175,
+            TargetScore = 200,
             DrunkenIntensity = 0.1f,
             DrunkenDuration = 2,
             MouthSpeed = 0.9f,
             DropSize = 0.5f,
             DropTexture = null,
-            DropSpawnScalar = 1.2f,
+            DropSpawnScalar = 1.3f,
             DropWeightScalar = 3,
             HandSway = 25,
             FinItnerference = true,
@@ -266,7 +276,7 @@ public static class Global
     }
     public static float SwimSpeed = 1;
 
-    public static float MouthSize = 0.76f;
+    public static float MouthSize = 0.7f;
     public static bool EnableWhiskers = false;
     public static float BeerHandScalar = 1;
     public static int ReputationlossReducation = 0;
@@ -276,7 +286,7 @@ public static class Global
         switch (upgrade)
         {
             case UpgradesEnum.BiggerMouth:
-                MouthSize += 0.04f;
+                MouthSize += 0.1f;
                 break;
             case UpgradesEnum.FasterSwimSpeed:
                 SwimSpeed = SwimSpeed * 0.8f;

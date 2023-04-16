@@ -58,12 +58,20 @@ public partial class Running : Control
         } while (b == a);
         Global.PossibleRunningUpgrades.Remove(b);
         var _cardA = (Card)PackedCard.Instantiate();
+
+        var state = Global.NewBar;
+        var music = MusicStateEnum.Running;
+        if (Global.CurrentLevel == 2)
+        {
+            state = Global.Midway;
+            music = MusicStateEnum.Main;
+        }
         _cardA.Upgrade = a;
-        _cardA.music = MusicStateEnum.Running;
-        _cardA.scene = Global.NewBar;
+        _cardA.music = music;
+        _cardA.scene = state;
         var _cardB = (Card)PackedCard.Instantiate();
-        _cardB.music = MusicStateEnum.Running;
-        _cardB.scene = Global.NewBar;
+        _cardB.music = music;
+        _cardB.scene = state;
         _cardB.Upgrade = b;
         CardContainer.AddChild(_cardA);
         CardContainer.AddChild(_cardB);

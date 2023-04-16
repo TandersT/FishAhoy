@@ -7,6 +7,8 @@ public partial class NovelPoints : Node2D
     public AudioStreamPlayer2D Voice;
     [Export]
     public AudioStream VoiceStream;
+    [Export]
+    public Texture2D SpeakerImage;
 
     public Sprite2D Icon;
 
