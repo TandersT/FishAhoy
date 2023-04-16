@@ -1,14 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://h3agjf5s4xs7"]
 
-[ext_resource type="Texture2D" uid="uid://b1bveqm3e3fgr" path="res://icon.svg" id="1_38k6e"]
+[ext_resource type="Texture2D" uid="uid://crywno7oe2c2a" path="res://Entities/Running/Objects/am_t_04.png" id="1_kour0"]
 [ext_resource type="Script" path="res://Entities/Running/KissingPair.cs" id="2_urxbx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rawkc"]
-size = Vector2(122, 118)
+size = Vector2(248.123, 248.123)
 
 [node name="KissingPair" type="Sprite2D"]
 modulate = Color(1, 0, 0, 1)
-texture = ExtResource("1_38k6e")
+scale = Vector2(0.507813, 0.507813)
+texture = ExtResource("1_kour0")
 script = ExtResource("2_urxbx")
 
 [node name="Area2D" type="Area2D" parent="."]

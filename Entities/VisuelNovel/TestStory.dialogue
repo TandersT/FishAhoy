@@ -1,0 +1,13 @@
+~ GodotLoveStory
+
+Godot: [[Hi|Hello|Howdy]], you hihi.
+Nathan: How will you respond?.
+- First one
+	Nathan: Oh my.
+- Second one
+	Nathan: Well well well.
+- Start again => GodotLoveStory
+- End the conversation => END
+Nathan: For more information see the online documentation.
+
+=> END

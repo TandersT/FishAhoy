@@ -1,0 +1,35 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=11 format=3 uid="uid://oa4us30brrdj"]
+
+[ext_resource type="AudioStream" uid="uid://c8wc651yypq7d" path="res://Soundscape/Cyring/Dwarf_Crying_Vocal_Balling_1.wav" id="1_2sp20"]
+[ext_resource type="AudioStream" uid="uid://clky34bhhrnv7" path="res://Soundscape/Cyring/Dwarf_Crying_Vocal_Balling_2.wav" id="2_6l3t3"]
+[ext_resource type="AudioStream" uid="uid://vadl2exgt00a" path="res://Soundscape/Cyring/Dwarf_Crying_Vocal_Balling_3.wav" id="3_ar2ph"]
+[ext_resource type="AudioStream" uid="uid://dlce7qclyd7qo" path="res://Soundscape/Cyring/Dwarf_Crying_Vocal_Balling_4.wav" id="4_23gjs"]
+[ext_resource type="AudioStream" uid="uid://cl46je3tkennj" path="res://Soundscape/Cyring/Dwarf_Crying_Vocal_Balling_5.wav" id="5_ts2fu"]
+[ext_resource type="AudioStream" uid="uid://dhmhxro76n3pq" path="res://Soundscape/Cyring/Dwarf_Crying_Vocal_Long_Cry_1.wav" id="6_cm3vs"]
+[ext_resource type="AudioStream" uid="uid://dayys8st6dquc" path="res://Soundscape/Cyring/Dwarf_Crying_Vocal_Long_Cry_2.wav" id="7_62em0"]
+[ext_resource type="AudioStream" uid="uid://d16tvwgcqhx67" path="res://Soundscape/Cyring/Dwarf_Crying_Vocal_Quick_Cry_2.wav" id="8_2awhb"]
+[ext_resource type="AudioStream" uid="uid://ctiqln62hm32d" path="res://Soundscape/Cyring/Dwarf_Crying_Vocal_Quick_Cry_3.wav" id="9_4na7d"]
+[ext_resource type="AudioStream" uid="uid://50nbitvcpbb0" path="res://Soundscape/Cyring/Dwarf_Crying_Vocal_Short_Cry_1.wav" id="10_uo7s7"]
+
+[resource]
+streams_count = 10
+stream_0/stream = ExtResource("1_2sp20")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_6l3t3")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_ar2ph")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_23gjs")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_ts2fu")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("6_cm3vs")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("7_62em0")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("8_2awhb")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("9_4na7d")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("10_uo7s7")
+stream_9/weight = 1.0

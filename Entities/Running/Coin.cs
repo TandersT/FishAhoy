@@ -7,13 +7,10 @@ public abstract partial class CollidableSprite : Sprite2D
     {
         base._Ready();
         Area2D = GetNode<Area2D>(nameof(Area2D));
-        Area2D.AreaEntered += OnAreaEntered;
 		VisibleOnScreenNotifier2D leftScreen = new VisibleOnScreenNotifier2D();
 		AddChild(leftScreen);
 		leftScreen.ScreenExited += QueueFree; 
     }
-
-    protected abstract void OnAreaEntered(Area2D area);
 }
 public partial class Coin : CollidableSprite
 {
@@ -24,10 +21,5 @@ public partial class Coin : CollidableSprite
 
     public override void _Process(double delta)
     {
-    }
-
-    protected override void OnAreaEntered(Area2D area)
-    {
-        QueueFree();
     }
 }

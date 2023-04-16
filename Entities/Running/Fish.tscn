@@ -1,0 +1,285 @@
+[gd_scene load_steps=9 format=3 uid="uid://r4wjcwkswfjl"]
+
+[ext_resource type="Script" path="res://Scenes/Fish.cs" id="2_ab81l"]
+[ext_resource type="Texture2D" uid="uid://c0lonhfr41c0f" path="res://Entities/Running/Artwork/spritesheet-ocean-man.PNG" id="2_ccveq"]
+[ext_resource type="Texture2D" uid="uid://xr56awaatgfb" path="res://Entities/Running/Artwork/ocean-man-base.PNG" id="2_cj3yk"]
+[ext_resource type="Texture2D" uid="uid://blcbav7pr5bd" path="res://Entities/Running/Artwork/reference.png" id="3_uh4mt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ra5n"]
+size = Vector2(136, 134)
+
+[sub_resource type="Animation" id="Animation_msjnt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fish/TailPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fish/LegsPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fish/HandPivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fish/EyelashPivot:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fish/TopfinPivot:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Fish/Hair:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Fish/BottomFin:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_uu02a"]
+resource_name = "Swim"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fish/TailPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0939523]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fish/LegsPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.105104, -0.127059]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fish/HandPivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.157429]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fish/EyelashPivot:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.126121]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fish/TopfinPivot:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.0882581]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Fish/Hair:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.128338]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Fish/BottomFin:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.12317]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xo063"]
+_data = {
+"RESET": SubResource("Animation_msjnt"),
+"Swim": SubResource("Animation_uu02a")
+}
+
+[node name="Fish" type="Sprite2D"]
+script = ExtResource("2_ab81l")
+
+[node name="Fish" type="Sprite2D" parent="."]
+position = Vector2(14, 2)
+rotation = -0.0159855
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_cj3yk")
+
+[node name="TailPivot" type="Node2D" parent="Fish"]
+show_behind_parent = true
+position = Vector2(-428, -120)
+
+[node name="Tail" type="Sprite2D" parent="Fish/TailPivot"]
+show_behind_parent = true
+position = Vector2(-112, -40)
+texture = ExtResource("2_ccveq")
+hframes = 7
+frame = 5
+
+[node name="LegsPivot" type="Node2D" parent="Fish"]
+show_behind_parent = true
+position = Vector2(-416, 24)
+
+[node name="legs" type="Sprite2D" parent="Fish/LegsPivot"]
+show_behind_parent = true
+position = Vector2(-212, -32)
+texture = ExtResource("2_ccveq")
+hframes = 7
+
+[node name="HandPivot" type="Node2D" parent="Fish"]
+position = Vector2(12, 96)
+
+[node name="Hand" type="Sprite2D" parent="Fish/HandPivot"]
+position = Vector2(-148, -12)
+texture = ExtResource("2_ccveq")
+hframes = 7
+frame = 6
+
+[node name="EyelashPivot" type="Node2D" parent="Fish"]
+position = Vector2(24, -152)
+
+[node name="EyeLash" type="Sprite2D" parent="Fish/EyelashPivot"]
+position = Vector2(-200, -8)
+texture = ExtResource("2_ccveq")
+hframes = 7
+frame = 1
+
+[node name="TopfinPivot" type="Node2D" parent="Fish"]
+show_behind_parent = true
+position = Vector2(-108, -240)
+
+[node name="TopFin" type="Sprite2D" parent="Fish/TopfinPivot"]
+show_behind_parent = true
+position = Vector2(12, -72)
+texture = ExtResource("2_ccveq")
+hframes = 7
+frame = 4
+
+[node name="Hair" type="Sprite2D" parent="Fish"]
+position = Vector2(264, -140)
+texture = ExtResource("2_ccveq")
+hframes = 7
+frame = 2
+
+[node name="BottomFin" type="Sprite2D" parent="Fish"]
+show_behind_parent = true
+position = Vector2(-172, 200)
+texture = ExtResource("2_ccveq")
+hframes = 7
+frame = 3
+
+[node name="Reference" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(-24.0652, -11)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_uh4mt")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_5ra5n")
+
+[node name="Behind" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Swim"
+speed_scale = 3.0
+libraries = {
+"": SubResource("AnimationLibrary_xo063")
+}

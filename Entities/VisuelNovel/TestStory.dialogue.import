@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://byw12l8ox5e10"
+path="res://.godot/imported/TestStory.dialogue-23606554507adc74915768e4c2c98660.tres"
+
+[deps]
+
+source_file="res://Entities/VisuelNovel/TestStory.dialogue"
+dest_files=["res://.godot/imported/TestStory.dialogue-23606554507adc74915768e4c2c98660.tres"]
+
+[params]
+

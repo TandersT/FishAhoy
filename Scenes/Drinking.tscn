@@ -1,18 +1,189 @@
-[gd_scene load_steps=11 format=3 uid="uid://c51o702l74glb"]
+[gd_scene load_steps=35 format=3 uid="uid://c51o702l74glb"]
 
 [ext_resource type="Texture2D" uid="uid://b1bveqm3e3fgr" path="res://icon.svg" id="1_koe10"]
 [ext_resource type="Script" path="res://Scenes/Drinking.cs" id="1_pggwd"]
 [ext_resource type="Script" path="res://Entities/Beer/TiltBeer.cs" id="1_xc12p"]
-[ext_resource type="PackedScene" uid="uid://cb6qepehjbwan" path="res://Scenes/Card.tscn" id="4_ewwkn"]
+[ext_resource type="Texture2D" uid="uid://6gq08uhrp2ry" path="res://Entities/Drinking/Artwork/BG.PNG" id="2_x0gn6"]
+[ext_resource type="PackedScene" uid="uid://88vlqr7lhht" path="res://Entities/Fishies/Dance.tscn" id="3_kn6kk"]
+[ext_resource type="PackedScene" uid="uid://c016mnuve2kud" path="res://Entities/Fishies/SwingArms.tscn" id="4_0y367"]
+[ext_resource type="LabelSettings" uid="uid://c6ar7xhovof7j" path="res://Fonts/BaseFont.tres" id="4_bqtag"]
+[ext_resource type="PackedScene" uid="uid://bu8bnkatblg50" path="res://Entities/Fishies/UpDown.tscn" id="5_pafan"]
+[ext_resource type="Texture2D" uid="uid://lklifmdbmw3o" path="res://Entities/Fishies/Artwork/IMG_0850.PNG" id="6_l0gij"]
+[ext_resource type="Texture2D" uid="uid://bhr6c8sybeho4" path="res://Entities/Drinking/Artwork/IMG_0852.PNG" id="7_snvsl"]
+[ext_resource type="Texture2D" uid="uid://bntk5ydr3pdem" path="res://Entities/Drinking/Artwork/IMG_0853.PNG" id="8_8xc7v"]
+[ext_resource type="Texture2D" uid="uid://b8cy3f716tf66" path="res://Entities/Drinking/Artwork/IMG_0857.PNG" id="9_v2qcn"]
+[ext_resource type="Texture2D" uid="uid://cfxmxpaurolea" path="res://Entities/Drinking/Artwork/IMG_0856.PNG" id="9_ye1hq"]
+[ext_resource type="StyleBox" uid="uid://cuuk2aqqbqrp2" path="res://Entities/BasePanel.tres" id="10_wwuf3"]
+[ext_resource type="Texture2D" uid="uid://bcec1xt47onn0" path="res://Entities/Drinking/Artwork/IMG_0866.PNG" id="10_y53a7"]
+[ext_resource type="Texture2D" uid="uid://bgmipnsg7kqyr" path="res://Entities/Drinking/Artwork/IMG_0858.PNG" id="13_xsd3m"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0w26"]
-size = Vector2(125.277, 112.941)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8jtp"]
+size = Vector2(46.3025, 121.121)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ykal5"]
+animation = &"SwingLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8366u"]
+animation = &"SwingRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5l3qm"]
+animation = &"ArmsUpDown"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_0fjpr"]
+mix_mode = 1
+autorestart = true
+autorestart_delay = 0.1
+autorestart_random_delay = 2.0
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_6bfbw"]
+mix_mode = 1
+autorestart = true
+autorestart_delay = 0.1
+autorestart_random_delay = 2.0
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_mv3l0"]
+graph_offset = Vector2(-253.557, 14.3907)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_5l3qm")
+nodes/Animation/position = Vector2(-40, 40)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_ykal5")
+"nodes/Animation 2/position" = Vector2(0, 240)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_8366u")
+"nodes/Animation 3/position" = Vector2(220, 280)
+nodes/OneShot/node = SubResource("AnimationNodeOneShot_6bfbw")
+nodes/OneShot/position = Vector2(200, 40)
+"nodes/OneShot 2/node" = SubResource("AnimationNodeOneShot_0fjpr")
+"nodes/OneShot 2/position" = Vector2(460, 40)
+nodes/output/position = Vector2(720, 40)
+node_connections = [&"output", 0, &"OneShot 2", &"OneShot", 0, &"Animation", &"OneShot", 1, &"Animation 2", &"OneShot 2", 0, &"OneShot", &"OneShot 2", 1, &"Animation 3"]
+
+[sub_resource type="Animation" id="Animation_4d7so"]
+resource_name = "ArmsUpDown"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fins/LeftPivot/ArmLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -387)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fins/RightPivot/ArmRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -387)]
+}
+
+[sub_resource type="Animation" id="Animation_3nfe2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fins/LeftPivot/ArmLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fins/RightPivot/ArmRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fins/LeftPivot/ArmLeft:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fins/RightPivot/ArmRight:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yx5h5"]
+resource_name = "SwingLeft"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fins/LeftPivot/ArmLeft:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.26573]
+}
+
+[sub_resource type="Animation" id="Animation_uvclq"]
+resource_name = "SwingRight"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fins/RightPivot/ArmRight:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.26573]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c81tw"]
+_data = {
+"ArmsUpDown": SubResource("Animation_4d7so"),
+"RESET": SubResource("Animation_3nfe2"),
+"SwingLeft": SubResource("Animation_yx5h5"),
+"SwingRight": SubResource("Animation_uvclq")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhh56"]
-size = Vector2(128, 125.6)
+size = Vector2(132.717, 114.242)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpqvr"]
 size = Vector2(488.664, 42.6161)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0w26"]
+size = Vector2(125.277, 112.941)
 
 [sub_resource type="Animation" id="Animation_7yu83"]
 resource_name = "MoveBeer"
@@ -21,14 +192,38 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mouth:position")
+tracks/0/path = NodePath("Node2D/Face:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(500, 1106), Vector2(1397, 1106)]
+"values": [Vector2(120, 970), Vector2(1800, 970)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/MouthCollider:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(120, 970), Vector2(1800, 985)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Whiskers:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(120, 970), Vector2(1800, 985)]
 }
 
 [sub_resource type="Animation" id="Animation_nyw57"]
@@ -36,14 +231,38 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mouth:position")
+tracks/0/path = NodePath("Node2D/Face:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(500, 1106)]
+"values": [Vector2(442, 970)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/MouthCollider:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(427, 985)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Whiskers:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(456, 1106)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_udxy3"]
@@ -62,121 +281,369 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pggwd")
 
-[node name="Beer" type="AnimatableBody2D" parent="."]
-position = Vector2(815, 200)
-script = ExtResource("1_xc12p")
+[node name="BG" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -577.5
+offset_top = -60.0
+offset_right = 577.5
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Beer"]
-position = Vector2(0, 150)
-scale = Vector2(2.20313, 0.265625)
-shape = SubResource("RectangleShape2D_j0w26")
+[node name="TextureRect" type="TextureRect" parent="BG"]
+custom_minimum_size = Vector2(0, 1200)
+layout_mode = 2
+texture = ExtResource("2_x0gn6")
+expand_mode = 3
 
-[node name="Beer" type="Sprite2D" parent="Beer/CollisionShape2D"]
-texture = ExtResource("1_koe10")
+[node name="FIshBG" type="Node2D" parent="."]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Beer"]
-position = Vector2(-125, -1)
-scale = Vector2(0.1875, 2.5)
+[node name="Dance" parent="FIshBG" instance=ExtResource("3_kn6kk")]
+position = Vector2(901, 547)
+scale = Vector2(0.362624, 0.362624)
+
+[node name="Dance2" parent="FIshBG" instance=ExtResource("3_kn6kk")]
+modulate = Color(1, 0.745098, 0.745098, 1)
+position = Vector2(1022, 511)
+scale = Vector2(-0.301102, 0.301102)
+
+[node name="SwingArms2" parent="FIshBG" instance=ExtResource("4_0y367")]
+modulate = Color(0.796078, 0.45098, 0.709804, 1)
+position = Vector2(651, 477)
+rotation = 0.161033
+scale = Vector2(-0.521, 0.521)
+
+[node name="SwingArms" parent="FIshBG" instance=ExtResource("4_0y367")]
+position = Vector2(407, 367)
+rotation = 0.173594
+scale = Vector2(0.396366, 0.396366)
+
+[node name="UpDown" parent="FIshBG" instance=ExtResource("5_pafan")]
+modulate = Color(0.658824, 1, 1, 1)
+position = Vector2(1277, 590)
+scale = Vector2(0.428847, 0.428847)
+
+[node name="Fins" type="Node2D" parent="."]
+
+[node name="LeftPivot" type="Node2D" parent="Fins"]
+position = Vector2(-183, 845)
+
+[node name="ArmLeft" type="AnimatableBody2D" parent="Fins/LeftPivot"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Fins/LeftPivot/ArmLeft"]
+position = Vector2(-52, -270)
+rotation = -3.59305
+scale = Vector2(3.61302, 3.61302)
+shape = SubResource("RectangleShape2D_x8jtp")
+
+[node name="Beer2" type="Sprite2D" parent="Fins/LeftPivot/ArmLeft/CollisionShape2D2"]
+position = Vector2(-10.6205, -9.10004)
+texture = ExtResource("6_l0gij")
+hframes = 4
+frame = 3
+
+[node name="RightPivot" type="Node2D" parent="Fins"]
+position = Vector2(2116, 845)
+
+[node name="ArmRight" type="AnimatableBody2D" parent="Fins/RightPivot"]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Fins/RightPivot/ArmRight"]
+position = Vector2(43, -288)
+rotation = -2.73464
+scale = Vector2(-3.608, 3.613)
+shape = SubResource("RectangleShape2D_x8jtp")
+
+[node name="Beer2" type="Sprite2D" parent="Fins/RightPivot/ArmRight/CollisionShape2D3"]
+position = Vector2(-10.6205, -9.10004)
+texture = ExtResource("6_l0gij")
+hframes = 4
+frame = 3
+
+[node name="FinAnimation" type="AnimationTree" parent="Fins"]
+unique_name_in_owner = true
+tree_root = SubResource("AnimationNodeBlendTree_mv3l0")
+anim_player = NodePath("../AnimationPlayer")
+parameters/OneShot/active = true
+parameters/OneShot/request = 0
+"parameters/OneShot 2/active" = true
+"parameters/OneShot 2/request" = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fins"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_c81tw")
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, -51)
+
+[node name="Face" type="Sprite2D" parent="Node2D"]
+position = Vector2(442, 970)
+scale = Vector2(0.597953, 0.597953)
+texture = ExtResource("7_snvsl")
+
+[node name="SmallBeard" type="Sprite2D" parent="Node2D/Face"]
+z_index = 1
+position = Vector2(-8.36194, -71.9119)
+texture = ExtResource("9_ye1hq")
+hframes = 2
+
+[node name="BigBeard" type="Sprite2D" parent="Node2D/Face"]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+position = Vector2(-8.36194, -71.9119)
+texture = ExtResource("9_ye1hq")
+hframes = 2
+frame = 1
+
+[node name="MouthPivot" type="Node2D" parent="Node2D/Face"]
+unique_name_in_owner = true
+position = Vector2(-8.36194, 60.2057)
+
+[node name="Mouth" type="Sprite2D" parent="Node2D/Face/MouthPivot"]
+unique_name_in_owner = true
+position = Vector2(6.87476, -60.2058)
+texture = ExtResource("8_8xc7v")
+
+[node name="Img0848" type="Sprite2D" parent="Node2D/Face/MouthPivot/Mouth"]
+z_index = 1
+texture = ExtResource("10_y53a7")
+
+[node name="MouthCollider" type="AnimatableBody2D" parent="Node2D"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(427, 985)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/MouthCollider"]
+z_index = 2
+position = Vector2(-149, 116)
+rotation = -0.413629
+scale = Vector2(0.110436, 1.29909)
 shape = SubResource("RectangleShape2D_jhh56")
 
-[node name="Beer2" type="Sprite2D" parent="Beer/CollisionShape2D2"]
+[node name="Beer2" type="Sprite2D" parent="Node2D/MouthCollider/CollisionShape2D2"]
+position = Vector2(0.000976563, 0)
 texture = ExtResource("1_koe10")
 
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Node2D/MouthCollider"]
+z_index = 2
+position = Vector2(173, 110)
+rotation = 0.279025
+scale = Vector2(0.116431, 1.17467)
+shape = SubResource("RectangleShape2D_jhh56")
+
+[node name="Beer4" type="Sprite2D" parent="Node2D/MouthCollider/CollisionShape2D5"]
+texture = ExtResource("1_koe10")
+
+[node name="MouthArea" type="Area2D" parent="Node2D/MouthCollider"]
+unique_name_in_owner = true
+z_index = 2
+position = Vector2(8.00024, 145)
+scale = Vector2(0.759998, 1)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/MouthCollider/MouthArea"]
+position = Vector2(-7.10266, 32.6725)
+shape = SubResource("RectangleShape2D_lpqvr")
+debug_color = Color(0, 0.643137, 0.270588, 0.419608)
+
+[node name="Whiskers" type="AnimatableBody2D" parent="Node2D"]
+visible = false
+position = Vector2(456, 1106)
+
+[node name="Whisker1" type="CollisionShape2D" parent="Node2D/Whiskers"]
+unique_name_in_owner = true
+z_index = 2
+position = Vector2(-191, -195.738)
+rotation = -0.462061
+scale = Vector2(0.0285162, 0.288011)
+shape = SubResource("RectangleShape2D_jhh56")
+disabled = true
+
+[node name="Beer2" type="Sprite2D" parent="Node2D/Whiskers/Whisker1"]
+position = Vector2(0.000976563, 0)
+texture = ExtResource("1_koe10")
+
+[node name="Whisker2" type="CollisionShape2D" parent="Node2D/Whiskers"]
+unique_name_in_owner = true
+z_index = 2
+position = Vector2(146, -196)
+rotation = 0.598712
+scale = Vector2(0.0235488, 0.341421)
+shape = SubResource("RectangleShape2D_jhh56")
+disabled = true
+
+[node name="Beer2" type="Sprite2D" parent="Node2D/Whiskers/Whisker2"]
+position = Vector2(0.000976563, 0)
+texture = ExtResource("1_koe10")
+
+[node name="Beer" type="AnimatableBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1445, 1157)
+sync_to_physics = false
+script = ExtResource("1_xc12p")
+
+[node name="BeerParticleSpawn" type="Marker2D" parent="Beer"]
+position = Vector2(110, -934)
+
+[node name="Icon" type="Sprite2D" parent="Beer/BeerParticleSpawn"]
+visible = false
+position = Vector2(-6, 4)
+texture = ExtResource("1_koe10")
+
+[node name="Img0847" type="Sprite2D" parent="Beer"]
+z_index = 1
+position = Vector2(-108.75, -512.58)
+scale = Vector2(0.777223, 0.777223)
+texture = ExtResource("9_v2qcn")
+
+[node name="Img0848" type="Sprite2D" parent="Beer/Img0847"]
+show_behind_parent = true
+z_index = -1
+texture = ExtResource("13_xsd3m")
+
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Beer"]
-position = Vector2(120, -1.99998)
-scale = Vector2(0.1875, 2.5)
+visible = false
+position = Vector2(-338, -964)
+rotation = 0.95027
+scale = Vector2(0.468042, 4.19862)
 shape = SubResource("RectangleShape2D_jhh56")
 
 [node name="Beer4" type="Sprite2D" parent="Beer/CollisionShape2D3"]
 texture = ExtResource("1_koe10")
 
-[node name="BeerParticleSpawn" type="Marker2D" parent="Beer"]
-position = Vector2(0, 92)
-
-[node name="Mouth" type="AnimatableBody2D" parent="."]
-position = Vector2(500, 1106)
-scale = Vector2(0.70396, 0.70396)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Mouth"]
-position = Vector2(-269.895, -63.4573)
-scale = Vector2(0.145939, 0.914091)
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Beer"]
+visible = false
+position = Vector2(-198, -758)
+rotation = 0.95027
+scale = Vector2(0.393569, 4.19862)
 shape = SubResource("RectangleShape2D_jhh56")
 
-[node name="Beer2" type="Sprite2D" parent="Mouth/CollisionShape2D2"]
-position = Vector2(0.000976563, 0)
+[node name="Beer4" type="Sprite2D" parent="Beer/CollisionShape2D5"]
 texture = ExtResource("1_koe10")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Mouth"]
-position = Vector2(-394.909, -65.3446)
-rotation = 1.17852
-scale = Vector2(0.145939, 2.03465)
-shape = SubResource("RectangleShape2D_jhh56")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beer"]
+visible = false
+position = Vector2(-36, -1027)
+rotation = -2.1851
+scale = Vector2(2.20313, 0.638613)
+shape = SubResource("RectangleShape2D_j0w26")
 
-[node name="Beer3" type="Sprite2D" parent="Mouth/CollisionShape2D3"]
-position = Vector2(0.000976563, -3.05176e-05)
+[node name="Beer" type="Sprite2D" parent="Beer/CollisionShape2D"]
 texture = ExtResource("1_koe10")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Mouth"]
-position = Vector2(358.72, -71.0267)
-rotation = 1.92753
-scale = Vector2(0.145939, 2.03465)
-shape = SubResource("RectangleShape2D_jhh56")
-
-[node name="Beer5" type="Sprite2D" parent="Mouth/CollisionShape2D4"]
-texture = ExtResource("1_koe10")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Mouth"]
-position = Vector2(234.388, -64.4573)
-scale = Vector2(0.208416, 0.930355)
-shape = SubResource("RectangleShape2D_jhh56")
-
-[node name="Beer4" type="Sprite2D" parent="Mouth/CollisionShape2D5"]
-texture = ExtResource("1_koe10")
-
-[node name="MouthArea" type="Area2D" parent="Mouth"]
+[node name="BeerParticles" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-9.94373, -63.9242)
-monitorable = false
+position = Vector2(-250, -27)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouth/MouthArea"]
-position = Vector2(-7.10266, 32.6725)
-shape = SubResource("RectangleShape2D_lpqvr")
-debug_color = Color(0, 0.643137, 0.270588, 0.419608)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="MouthAnimation" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 autoplay = "MoveBeer"
 libraries = {
 "": SubResource("AnimationLibrary_udxy3")
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ScoreLabel" type="Label" parent="HBoxContainer"]
-layout_mode = 2
-text = "Score"
-
-[node name="ScoreValue" type="Label" parent="HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "@VALUE@"
-
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer2" type="CenterContainer" parent="."]
 layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 131.0
+grow_horizontal = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer2"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("10_wwuf3")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ScoreLabel" type="Label" parent="CenterContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer"]
+layout_mode = 2
+text = "Score: "
+label_settings = ExtResource("4_bqtag")
+
+[node name="ScoreValue" type="Label" parent="CenterContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "00.00"
+label_settings = ExtResource("4_bqtag")
+horizontal_alignment = 2
+
+[node name="ScoreUnit" type="Label" parent="CenterContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer"]
+layout_mode = 2
+text = "dl"
+label_settings = ExtResource("4_bqtag")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TargetLabel" type="Label" parent="CenterContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+text = "Target: "
+label_settings = ExtResource("4_bqtag")
+
+[node name="TargetValue" type="Label" parent="CenterContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "00.00"
+label_settings = ExtResource("4_bqtag")
+horizontal_alignment = 2
+
+[node name="TargetUnit" type="Label" parent="CenterContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+text = "dl"
+label_settings = ExtResource("4_bqtag")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TimeLeft" type="Label" parent="CenterContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer3"]
+layout_mode = 2
+text = "TimeLeft:"
+label_settings = ExtResource("4_bqtag")
+
+[node name="DurationLeft" type="Label" parent="CenterContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "00.00"
+label_settings = ExtResource("4_bqtag")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+[node name="CardContainer" type="HBoxContainer" parent="CanvasLayer/CenterContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 50
-
-[node name="Card" parent="CenterContainer/HBoxContainer" instance=ExtResource("4_ewwkn")]
-layout_mode = 2
-
-[node name="Card2" parent="CenterContainer/HBoxContainer" instance=ExtResource("4_ewwkn")]
-layout_mode = 2

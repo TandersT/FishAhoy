@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://efdfh8epfm6s"]
+
+[ext_resource type="Script" path="res://Scenes/NewBar.cs" id="1_yvb27"]
+[ext_resource type="Texture2D" uid="uid://bbdi4yegxcgkl" path="res://Artwork/IMG_0864.PNG" id="2_e6ivi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1gax2"]
+font_size = 32
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="NewBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yvb27")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_e6ivi")
+
+[node name="BarName" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 842.0
+offset_top = 340.0
+offset_right = -672.0
+offset_bottom = -686.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.104349
+text = "@BarName@"
+label_settings = SubResource("LabelSettings_1gax2")
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3

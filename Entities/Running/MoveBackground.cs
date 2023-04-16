@@ -5,8 +5,10 @@ public partial class MoveBackground : Control
 {
     float size;
     TextureRect BackgroundA, BackgroundB;
+    Running Running;
     public override void _Ready()
     {
+        Running = (Running)GetParent();
         BackgroundA = (TextureRect)GetChild(0);
         BackgroundB = (TextureRect)BackgroundA.Duplicate();
         AddChild(BackgroundB);
@@ -16,7 +18,7 @@ public partial class MoveBackground : Control
 
     public override void _Process(double delta)
     {
-        this.Position += Vector2.Left * (float)delta * 500;
+        this.Position += Vector2.Left * (float)delta * 500 * Running.Data.GameSpeed;
         if (BackgroundA.GlobalPosition.X < -size)
         {
             BackgroundA.GlobalPosition = BackgroundB.GlobalPosition + Vector2.Right * size;

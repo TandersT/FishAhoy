@@ -15,21 +15,51 @@ public partial class Main : Control
 
     private void OnStartGame()
     {
-        Global.PossibleUpgrades = new System.Collections.Generic.List<UpgradesEnum>
+        Global.CurrentLevel = 0;
+        Global.PossibleDrinkingUpgrades = new System.Collections.Generic.List<UpgradesEnum>
         {
             UpgradesEnum.BiggerMouth,
             UpgradesEnum.BiggerMouth,
-            UpgradesEnum.FasterSwimSpeed,
-            UpgradesEnum.FasterSwimSpeed,
+            UpgradesEnum.BiggerMouth,
             UpgradesEnum.FasterBeerhand,
             UpgradesEnum.FasterBeerhand,
-            UpgradesEnum.RareRedDrops,
-            UpgradesEnum.RareGoldBards,
-            UpgradesEnum.MustacheAsCup,
-            UpgradesEnum.LessReputationLoss,
-            UpgradesEnum.IWillTellYouAboutMyFish,
+            UpgradesEnum.FasterBeerhand,
+            UpgradesEnum.BiggerMouth,
+            UpgradesEnum.BiggerMouth,
+            UpgradesEnum.BiggerMouth,
+            UpgradesEnum.FasterBeerhand,
+            UpgradesEnum.FasterBeerhand,
+            UpgradesEnum.FasterBeerhand,
+            // UpgradesEnum.RareRedDrops,
+            // UpgradesEnum.RareGoldBards,
+            // UpgradesEnum.MustacheAsCup,
+            // UpgradesEnum.IWillTellYouAboutMyFish,
+            UpgradesEnum.INeedMoreAlcocol,
             UpgradesEnum.INeedMoreAlcocol,
         };
+        Global.PossibleRunningUpgrades = new System.Collections.Generic.List<UpgradesEnum>
+        {
+            UpgradesEnum.FasterSwimSpeed,
+            UpgradesEnum.FasterSwimSpeed,
+            UpgradesEnum.FasterSwimSpeed,
+            UpgradesEnum.LessReputationLoss,
+            UpgradesEnum.LessReputationLoss,
+            UpgradesEnum.LessReputationLoss,
+            UpgradesEnum.FasterSwimSpeed,
+            UpgradesEnum.FasterSwimSpeed,
+            UpgradesEnum.FasterSwimSpeed,
+            UpgradesEnum.LessReputationLoss,
+            UpgradesEnum.LessReputationLoss,
+            UpgradesEnum.LessReputationLoss,
+            // UpgradesEnum.RareRedDrops,
+            // UpgradesEnum.RareGoldBards,
+            // UpgradesEnum.IWillTellYouAboutMyFish,
+            UpgradesEnum.INeedMoreAlcocol,
+            UpgradesEnum.INeedMoreAlcocol,
+        };
+
+        Global.VisualNovelType = VisualNovelTypeEnum.Start;
+        Global.CustomChangeScene(Global.VisuelNovel, MusicStateEnum.Main);
     }
 }
 

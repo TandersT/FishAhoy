@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh8hlkun8hpqj"]
+
+[ext_resource type="Script" path="res://Scenes/FadeInOut.cs" id="1_14p7o"]
+[ext_resource type="AudioStream" uid="uid://gqcb4jkw0vm1" path="res://Soundscape/Menu.wav" id="2_8otru"]
+[ext_resource type="AudioStream" uid="uid://cywo060kwe2j" path="res://Soundscape/GameOver1.wav" id="3_ui47r"]
+[ext_resource type="AudioStream" uid="uid://b7e3vg5v6xhak" path="res://Soundscape/Running.wav" id="4_1tjxi"]
+[ext_resource type="AudioStream" uid="uid://dpt778xf6582h" path="res://Soundscape/Drinking.ogg" id="5_ejtk1"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 5
+
+[node name="Control" type="ColorRect" parent="."]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("1_14p7o")
+Main = ExtResource("2_8otru")
+GameOver = ExtResource("3_ui47r")
+Running = ExtResource("4_1tjxi")
+Drinking = ExtResource("5_ejtk1")

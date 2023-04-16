@@ -8,9 +8,4 @@ public partial class KissingPair : CollidableSprite
 	{
 		base._Ready();
 	}
-
-    protected override void OnAreaEntered(Area2D area)
-    {
-		QueueFree();
-    }
 }

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dftvne63fl2p3"]
 
-[ext_resource type="Texture2D" uid="uid://b1bveqm3e3fgr" path="res://icon.svg" id="1_gqwua"]
 [ext_resource type="Script" path="res://Entities/Beer/BeerParticle.cs" id="1_ycxt8"]
+[ext_resource type="Texture2D" uid="uid://c0wwnsk2rh7jt" path="res://Entities/Drinking/Artwork/Drop.PNG" id="2_qkmny"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xrryd"]
 radius = 25.0
@@ -11,8 +11,8 @@ can_sleep = false
 script = ExtResource("1_ycxt8")
 
 [node name="Beer" type="Sprite2D" parent="."]
-scale = Vector2(0.429688, 0.429688)
-texture = ExtResource("1_gqwua")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_qkmny")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xrryd")

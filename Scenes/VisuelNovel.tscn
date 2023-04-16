@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6qwm6robcnr6"]
+
+[ext_resource type="Script" path="res://Scenes/VisuelNovel.cs" id="1_m6c08"]
+[ext_resource type="PackedScene" uid="uid://c8pn7a733tr6v" path="res://Scenes/Dialouge.tscn" id="1_pduqi"]
+[ext_resource type="PackedScene" uid="uid://c81ismwx4e8sn" path="res://Entities/VisuelNovel/NovelPoints.tscn" id="2_w1jgb"]
+[ext_resource type="AudioStream" uid="uid://c6qlfpevt7ouy" path="res://Entities/VisuelNovel/Soundscape/ManlyTalk2.ogg" id="3_2dwvb"]
+[ext_resource type="AudioStream" uid="uid://cn84ji0bvgn0n" path="res://Entities/VisuelNovel/Soundscape/ManlyTalk1.ogg" id="3_qikby"]
+
+[node name="VisuelNovel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m6c08")
+
+[node name="BG" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NovelPointsLeft" parent="." instance=ExtResource("2_w1jgb")]
+VoiceStream = ExtResource("3_qikby")
+
+[node name="NovelPointsRight" parent="." instance=ExtResource("2_w1jgb")]
+modulate = Color(1, 0.415686, 0.415686, 1)
+scale = Vector2(-1, 1)
+VoiceStream = ExtResource("3_2dwvb")
+
+[node name="Dialouge" parent="." instance=ExtResource("1_pduqi")]
+layout_mode = 1
+
+[node name="ReturnButton" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -262.0
+offset_top = -145.0
+offset_right = 262.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 100
+text = "Return"

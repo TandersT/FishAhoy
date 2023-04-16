@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c81ismwx4e8sn"]
+
+[ext_resource type="Script" path="res://Scenes/NovelPoints.cs" id="1_gjgxl"]
+[ext_resource type="Texture2D" uid="uid://b1bveqm3e3fgr" path="res://icon.svg" id="2_6kvxs"]
+[ext_resource type="AudioStream" uid="uid://cn84ji0bvgn0n" path="res://Entities/VisuelNovel/Soundscape/ManlyTalk1.ogg" id="3_50ghp"]
+
+[node name="NovelPoints" type="Node2D"]
+position = Vector2(960, 0)
+script = ExtResource("1_gjgxl")
+
+[node name="OutsidePoint" type="Node2D" parent="."]
+position = Vector2(-1422, 723)
+rotation = -0.700908
+
+[node name="InsidePoint" type="Node2D" parent="."]
+position = Vector2(-512, 723)
+
+[node name="Character" type="Node2D" parent="."]
+position = Vector2(-1257, 723)
+
+[node name="Icon" type="Sprite2D" parent="Character"]
+unique_name_in_owner = true
+scale = Vector2(2.67188, 5.45313)
+texture = ExtResource("2_6kvxs")
+
+[node name="Voice" type="AudioStreamPlayer2D" parent="Character"]
+stream = ExtResource("3_50ghp")

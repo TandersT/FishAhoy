@@ -11,6 +11,7 @@ border_width_bottom = 10
 border_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
 
 [node name="Card" type="PanelContainer"]
+process_mode = 3
 custom_minimum_size = Vector2(300, 450)
 theme_override_styles/panel = SubResource("StyleBoxFlat_wp8mx")
 script = ExtResource("1_2qnmi")
