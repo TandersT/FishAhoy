@@ -140,8 +140,8 @@ public static class Global
     {
         new DrinkingData()
         {
-            Duration = 30,
-            TargetScore = 60,
+            Duration = 40,
+            TargetScore = 50,
             DrunkenIntensity = 0.1f,
             DrunkenDuration = 2,
             MouthSpeed = 0.5f,
@@ -155,8 +155,8 @@ public static class Global
         }, //1
         new DrinkingData()
         {
-            Duration = 20,
-            TargetScore = 40,
+            Duration = 25,
+            TargetScore = 30,
             DrunkenIntensity = 0.1f,
             DrunkenDuration = 2,
             MouthSpeed = 0.6f,
@@ -171,7 +171,7 @@ public static class Global
         new DrinkingData()
         {
             Duration = 30,
-            TargetScore = 60,
+            TargetScore = 40,
             DrunkenIntensity = 0.1f,
             DrunkenDuration = 2,
             MouthSpeed = 0.7f,
@@ -185,7 +185,7 @@ public static class Global
         }, //6 
         new DrinkingData()
         {
-            Duration = 50,
+            Duration = 60,
             TargetScore = 200,
             DrunkenIntensity = 0.1f,
             DrunkenDuration = 2,
@@ -219,7 +219,7 @@ public static class Global
             GameSpeed = 1.5f,
             SwayDistance = .5f,
             BadStuffChange = 0.4f,
-            ReputationLost = -45,
+            ReputationLost = -40,
         }, //2
         new RunningData()
         {
@@ -229,7 +229,7 @@ public static class Global
             GameSpeed = 1.7f,
             SwayDistance = 1f,
             BadStuffChange = 0.45f,
-            ReputationLost = -50,
+            ReputationLost = -40,
         }, //3
     //    new RunningData()
     //     {
@@ -249,7 +249,7 @@ public static class Global
             GameSpeed = 2.2f,
             SwayDistance = 4f,
             BadStuffChange = 0.45f,
-            ReputationLost = -60,
+            ReputationLost = -50,
         },  //5
     };
 
@@ -286,13 +286,13 @@ public static class Global
         switch (upgrade)
         {
             case UpgradesEnum.BiggerMouth:
-                MouthSize += 0.1f;
+                MouthSize += 0.15f;
                 break;
             case UpgradesEnum.FasterSwimSpeed:
-                SwimSpeed = SwimSpeed * 0.8f;
+                SwimSpeed = SwimSpeed * 0.7f;
                 break;
             case UpgradesEnum.FasterBeerhand:
-                BeerHandScalar *= 1.3f;
+                BeerHandScalar *= 1.5f;
                 break;
             // case UpgradesEnum.RareRedDrops:
             //     break;
@@ -302,12 +302,12 @@ public static class Global
                 EnableWhiskers = true;
                 break;
             case UpgradesEnum.LessReputationLoss:
-                ReputationlossReducation += 5;
+                ReputationlossReducation += 10;
                 break;
             // case UpgradesEnum.IWillTellYouAboutMyFish:
             //     break;
             case UpgradesEnum.INeedMoreAlcocol:
-                AlcoholIncrease += 5;
+                // AlcoholIncrease += 5;
                 break;
         }
     }

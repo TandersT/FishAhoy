@@ -10,19 +10,19 @@ public partial class GameOver : Control
         BarValue = GetNode<Label>($"%{nameof(BarValue)}");
         TryAgain = GetNode<Button>($"%{nameof(TryAgain)}");
         Exit = GetNode<Button>($"%{nameof(Exit)}");
-		TryAgain.Pressed += OnTryAgain;
-		Exit.Pressed += OnReset;
+        TryAgain.Pressed += OnTryAgain;
+        Exit.Pressed += OnReset;
 
-		BarValue.Text = (Global.CurrentLevel + 1).ToString();
+        BarValue.Text = Global.BarNames[(Global.CurrentLevel)];
     }
 
     private void OnReset()
     {
-		Global.CustomChangeScene(Global.Main, MusicStateEnum.Main);
+        Global.CustomChangeScene(Global.Main, MusicStateEnum.Main);
     }
 
     private void OnTryAgain()
     {
-		Global.CustomChangeScene(Global.LatestState, Global.LatestMusicState);
+        Global.CustomChangeScene(Global.LatestState, Global.LatestMusicState);
     }
 }

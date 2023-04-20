@@ -103,6 +103,10 @@ public partial class Running : Control
     public void UpdateReputation(int added)
     {
         Reputation += added;
+        if (Reputation > 100)
+        {
+            Reputation = 100;
+        }
         ReputationSlider.Value = Reputation;
         GD.Print(Reputation);
         if (Reputation <= 0 && !Global.GodMode)

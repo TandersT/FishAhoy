@@ -53,6 +53,11 @@ public partial class Main : Control
             UpgradesEnum.INeedMoreAlcocol,
         };
 
+        Global.MouthSize = 0.7f;
+        Global.SwimSpeed = 1;
+        Global.BeerHandScalar = 1;
+        Global.ReputationlossReducation = 0;
+
         Global.VisualNovelType = VisualNovelTypeEnum.Start;
         Global.CustomChangeScene(Global.VisuelNovel, MusicStateEnum.Main);
     }
